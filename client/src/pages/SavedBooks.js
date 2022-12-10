@@ -1,40 +1,38 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { Jumbotron, Container, CardColumns, Card, Button } from 'react-bootstrap';
 
-import { getMe, deleteBook } from '../utils/API';
+import { useQuery } from '@apollo/client';
+import { GET_ME } from '../utils/queries';
+import { deleteBook } from '../utils/API';
 import Auth from '../utils/auth';
 import { removeBookId } from '../utils/localStorage';
+import { Navigate, useParams } from 'react-router-dom';
 
 const SavedBooks = () => {
-  const [userData, setUserData] = useState({});
+  const { username: userParam } = useParams();
 
-  // use this to determine if `useEffect()` hook needs to run again
-  const userDataLength = Object.keys(userData).length;
+  const {loading, userData} = useQuery(userParam ? GET_ME : null, {
+    variables: { username: userParam },
+  });
 
-  useEffect(() => {
-    const getUserData = async () => {
-      try {
-        const token = Auth.loggedIn() ? Auth.getToken() : null;
+  const user = userData?.me || {};
 
-        if (!token) {
-          return false;
-        }
+  if (Auth.loggedIn() && Auth.getProfile().userData.username === userParam) {
+    return <Navigate to="/me" />;
+  }
 
-        const response = await getMe(token);
+  if (loading) {
+    return <div>Loading...</div>;
+  }
 
-        if (!response.ok) {
-          throw new Error('something went wrong!');
-        }
-
-        const user = await response.json();
-        setUserData(user);
-      } catch (err) {
-        console.error(err);
-      }
-    };
-
-    getUserData();
-  }, [userDataLength]);
+  if (!user?.username) {
+    return (
+      <h4>
+        You need to be logged in to see this. Use the navigation links above to
+        sign up or log in!
+      </h4>
+    );
+  }
 
   // create function that accepts the book's mongo _id value as param and deletes the book from the database
   const handleDeleteBook = async (bookId) => {
