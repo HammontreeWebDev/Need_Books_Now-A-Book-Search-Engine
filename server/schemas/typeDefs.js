@@ -20,12 +20,12 @@ type User {
     username: String
     email: String
     bookCount: Int
-    savedBooks: [Book]! 
+    savedBooks: [Book]
 }
 
 type Book {
     bookId: ID!
-    authors: [String]!
+    authors: [String]
     description: String
     title: String
     image: String
