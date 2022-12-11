@@ -12,6 +12,10 @@
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "dependencies": {
+    "apollo-server-express": "^3.6.2",
+    "@apollo/client": "^3.5.8"
+  },
   "devDependencies": {
     "concurrently": "^5.1.0"
   }
