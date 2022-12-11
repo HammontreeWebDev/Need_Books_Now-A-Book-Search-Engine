@@ -18,7 +18,7 @@
   
   Preview: 
   ![Screenshot 2022-12-11 at 6 05 35 PM 2](https://user-images.githubusercontent.com/113649683/206934265-fb4cba58-4cbe-4bd9-9e78-b888a18c66d6.png)
-
+  ![Screenshot 2022-12-11 at 6 09 00 PM 2](https://user-images.githubusercontent.com/113649683/206934391-d2d059b2-0b37-4955-b99c-6adf6a334926.png)
   ## License
   The MIT License (https://opensource.org/licenses/MIT)
   ## Contributing
