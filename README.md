@@ -13,6 +13,12 @@
   If you'd like to fork this repo and clone it to your local machine you can `npm install` to grab the necessary node modules and then `npm run develop` to run it on your local machine, instead of using the deployed link.
   ## Usage
   This application demonstrates my ability to migrate an applications existing technology to a different one. As far as the usefulness of the actual application, it would be a good way for someone to keep track of books they would like to read or books that they have already read.
+  
+  Deployed Application: https://need-books-now.herokuapp.com/
+  
+  Preview: 
+  ![Screenshot 2022-12-11 at 6 05 35 PM 2](https://user-images.githubusercontent.com/113649683/206934265-fb4cba58-4cbe-4bd9-9e78-b888a18c66d6.png)
+
   ## License
   The MIT License (https://opensource.org/licenses/MIT)
   ## Contributing
